@@ -1,5 +1,5 @@
 name: learnit
-version: "0.2"
+version: "0.3"
 summary: Learn through flashcards
 description: Learn through flashcards from external card files
 confinement: strict
@@ -18,6 +18,8 @@ parts:
       - bin/flashcards
   cards:
     plugin: copy
+    source: https://github.com/knitzsche/learnit
+    source-type: git      
     files:
       nato_alph.txt: nato_alph.txt
       learnit.wrapper: bin/learnit
