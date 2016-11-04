@@ -9,18 +9,22 @@ apps:
     command: bin/learnit
 
 parts:
-  learnit:
+  flashcards:
     plugin: go
     source: https://github.com/knitzsche/flashcards
     go-importpath: github.com/knitzsche/flashcards
     source-type: git      
     snap:
       - bin/flashcards
-  cards:
-    plugin: copy
+  learnit:
+    plugin: dump 
     source: https://github.com/knitzsche/learnit
     source-type: git      
-    files:
-      nato_alph.txt: nato_alph.txt
+    organize:
       learnit.wrapper: bin/learnit
 
+  cards:
+    plugin: dump
+    source: data
+    organize:
+      nato_alph.txt: bin/nato_alph.txt
