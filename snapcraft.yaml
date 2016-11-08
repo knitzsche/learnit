@@ -1,5 +1,5 @@
 name: learnit
-version: "0.3"
+version: "0.4"
 summary: Learn through flashcards
 description: Learn through flashcards from external card files
 confinement: strict
@@ -16,6 +16,7 @@ parts:
     source-type: git      
     snap:
       - bin/flashcards
+
   learnit:
     plugin: dump 
     source: https://github.com/knitzsche/learnit
@@ -26,5 +27,3 @@ parts:
   cards:
     plugin: dump
     source: data
-    organize:
-      nato_alph.txt: bin/nato_alph.txt
