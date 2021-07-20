@@ -1,0 +1,27 @@
+name: learnit
+version: "1"
+summary: Learn through flashcards
+description: Learn through flashcards from external card files
+base: core20
+confinement: strict
+
+apps:
+  learnit:
+    command: bin/learnit
+
+parts:
+  flashcards:
+    plugin: go
+    source: https://github.com/knitzsche/flashcards
+    source-type: git      
+
+  learnit:
+    plugin: dump 
+    source: https://github.com/knitzsche/learnit
+    source-type: git      
+    organize:
+      learnit.wrapper: bin/learnit
+
+  cards:
+    plugin: dump
+    source: data
