@@ -4,10 +4,12 @@ summary: Learn through flashcards
 description: Learn through flashcards from external card files
 base: core20
 confinement: strict
+grade: stable
 
 apps:
   learnit:
-    command: bin/learnit
+    command: bin/learnit.sh
+    plugs: [ home ]
 
 parts:
   flashcards:
@@ -21,6 +23,10 @@ parts:
     source-type: git      
     organize:
       learnit.wrapper: bin/learnit
+
+  launchers:
+    source: launchers
+    plugin: dump
 
   cards:
     plugin: dump
